@@ -1,15 +1,70 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Todos from './components/Todos';
 import './App.css';
 
+
+
+
+
+
 class App extends Component {
+  
+  
+  
+  
+  
+                            state = {
+                              
+                                      todos: [
+                                              
+                                                {
+                                                  id:1,
+                                                  title:'take trashout',
+                                                  completed: false
+                                                },
+                                                
+                                                {
+                                                  id:2,
+                                                  title:'feed dog',
+                                                  completed: false
+                                                },
+                                                
+                                                {
+                                                  id:3,
+                                                  title:'clean room',
+                                                  completed: false
+                                                }
+                                              
+                                              ]                              
+                                    }
+  
+  
+  
+  
+  
+  
+  
                               render() {
+                                
+                                        
+                                        console.log(this.state.todos)
+                                        
                                         return (
                                                   <div className="App">
+                                                  
+                                                  
                                                    <h1>React App</h1>
+                                                   
+                                                   
+                                                   <Todos/>
+                                                   
                                                   </div>
                                                 );
                                       }
+                                      
+                                      
+                                      
+                                      
                             }
 
 export default App;
