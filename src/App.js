@@ -47,7 +47,7 @@ class App extends Component {
                               render() {
                                 
                                         
-                                        console.log(this.state.todos)
+                                       
                                         
                                         return (
                                                   <div className="App">
@@ -56,7 +56,7 @@ class App extends Component {
                                                    <h1>React App</h1>
                                                    
                                                    
-                                                   <Todos/>
+                                                   <Todos  todos={this.state.todos} />
                                                    
                                                   </div>
                                                 );
