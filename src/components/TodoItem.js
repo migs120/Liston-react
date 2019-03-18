@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
                               render() {
-                                  
-                                  
-                                  
+                
                                         return (
                                                 
-                                                <div  style={{backgroundColor:'yellow'}}>
+                                                <div  style={itemStyle}>
                                                 
                                                     <p>{this.props.todo.title}</p>
                                                     
@@ -16,6 +14,13 @@ class TodoItem extends Component {
                                             
                                                 )
                                       }
+                                      
+                                      
+                            
                             }
+                            
+
+const itemStyle = {backgroundColor:'yellow'} 
+
 
 export default TodoItem;
