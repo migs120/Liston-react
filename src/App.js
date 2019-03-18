@@ -26,7 +26,7 @@ class App extends Component {
                                                 {
                                                   id:2,
                                                   title:'feed dog',
-                                                  completed: false
+                                                  completed: true
                                                 },
                                                 
                                                 {
