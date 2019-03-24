@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 
 
 class TodoItem extends Component {
+    
+                                      markComplete(e){console.log(this.props)}
 
                                       render() {
                         
@@ -12,7 +14,11 @@ class TodoItem extends Component {
                                                             
                                                             <div  style={itemStyle}>
                                                             
-                                                                <p style={getStyle(this.props) } >  {this.props.todo.title}   </p>
+                                                                <p style={  getStyle(this.props) } >
+                                                                
+                                                                    <input type="checkbox"  onChange={this.markComplete.bind(this)}/>{''}
+                                                                    {this.props.todo.title}  
+                                                                </p>
                                                                 
                                                             </div>
                                                         
@@ -32,11 +38,27 @@ function getStyle(props)  {
     
                             if(props.todo.completed){
                                 
-                                                      return {textDecoration:'line-through'}  
+                                                      return {
+                                                                textDecoration:'line-through',
+                                                                fontFamily:'Arial, Helvetica, sans-serif' 
+                                                                
+                                                            
+                                                             }  
                                                       
                                                      }
                                                              
-                            else{  return{textDecoration:'none'}  }  
+                            else{  
+                                
+                                return  {  
+                                    
+                                        textDecoration:'none',
+                                        fontFamily:'Impact, Charcoal, sans-serif',
+                                        fontSize:'15px'
+                                    
+                                        }  
+                                
+                                
+                                }  
                             
                             }  
 
