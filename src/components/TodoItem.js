@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
     
-                                      markComplete(e){console.log(this.props)}
+                                      markComplete = (e) => {console.log(this.props)}
 
                                       render() {
                         
@@ -16,7 +16,7 @@ class TodoItem extends Component {
                                                             
                                                                 <p style={  getStyle(this.props) } >
                                                                 
-                                                                    <input type="checkbox"  onChange={this.markComplete.bind(this)}/>{''}
+                                                                    <input type="checkbox"  onChange={this.markComplete}/>{''}
                                                                     {this.props.todo.title}  
                                                                 </p>
                                                                 
