@@ -41,20 +41,14 @@ class App extends Component {
   
   
   
+  
+  
+  
                               markComplete = (a) => { 
                                   
                                                       this.setState({
-                                                                          todos: this.state.todos.map(
-                                                                      
-                                                                                                          todoLoopName => {
-                                                                                                              
-                                                                                                                              if(todoLoopName.id === a.id){ todoLoopName.completed = !todoLoopName.completed  } 
-                                                                                                                              
-                                                                                                                              return todoLoopName
-                                                                                                                      
-                                                                                                                         }
-                                                                      
-                                                                                                      )
+                                                                         
+                                                                       todos: Changer(a, this.state.todos)
                                                                     })               
                                
                                   
@@ -83,5 +77,16 @@ class App extends Component {
                                       
                                       
                             }
+                            
+                            
+function Changer(prop, state){
+                                
+                                var  c = state
+                                c[prop.id-1].completed = !c[prop.id-1].completed 
+                                
+                                return c
+                                
+                                
+                            }                            
 
 export default App;
