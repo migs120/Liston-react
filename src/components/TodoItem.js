@@ -6,17 +6,17 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
     
-                                      markComplete = (e) => {console.log(this.props)}
+                                     // markComplete = (e) => {console.log(this.props.todo.completed = !this.props.todo.completed),this.props.todo.completed = !this.props.todo.completed}
 
                                       render() {
-                        
+                                                    //const {id, title } = this.props.todo;
                                                     return (
                                                             
                                                             <div  style={itemStyle}>
                                                             
                                                                 <p style={  getStyle(this.props) } >
                                                                 
-                                                                    <input type="checkbox"  onChange={this.markComplete}/>{''}
+                                                                    <input type="checkbox"  onChange={this.props.markComplete1.bind(this, this.props.todo)}/>
                                                                     {this.props.todo.title}  
                                                                 </p>
                                                                 

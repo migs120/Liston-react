@@ -26,7 +26,7 @@ class App extends Component {
                                                 {
                                                   id:2,
                                                   title:'feed dog',
-                                                  completed: true
+                                                  completed: false
                                                 },
                                                 
                                                 {
@@ -41,7 +41,24 @@ class App extends Component {
   
   
   
-  
+                              markComplete = (a) => { 
+                                  
+                                                      this.setState({
+                                                                          todos: this.state.todos.map(
+                                                                      
+                                                                                                          todoLoopName => {
+                                                                                                              
+                                                                                                                              if(todoLoopName.id === a.id){ todoLoopName.completed = !todoLoopName.completed  } 
+                                                                                                                              
+                                                                                                                              return todoLoopName
+                                                                                                                      
+                                                                                                                         }
+                                                                      
+                                                                                                      )
+                                                                    })               
+                               
+                                  
+                                                    }
   
   
                               render() {
@@ -56,7 +73,7 @@ class App extends Component {
                                                    <h1>React App</h1>
                                                    
                                                    
-                                                   <Todos  todos={this.state.todos} />
+                                                   <Todos  todos={this.state.todos}  markComplete={this.markComplete}/>
                                                    
                                                   </div>
                                                 );
