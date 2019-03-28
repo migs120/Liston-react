@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 import './App.css';
 
 
@@ -44,11 +45,23 @@ class App extends Component {
   
   
   
-                              markComplete = (a) => { 
+                              markComplete1 = (a) => { 
                                   
                                                       this.setState({
                                                                          
-                                                                       todos: Changer(a, this.state.todos)
+                                                                       todos: MarkChanger(a, this.state.todos)
+                                                                    })               
+                               
+                                  
+                                                    }
+                                                    
+                                                    
+                                                    
+                             delThis = (a) => { 
+                                  
+                                                      this.setState({
+                                                                         
+                                                                       todos: DeleteItem(a, this.state.todos)
                                                                     })               
                                
                                   
@@ -63,11 +76,16 @@ class App extends Component {
                                         return (
                                                   <div className="App">
                                                   
-                                                  
-                                                   <h1>React App</h1>
+                                                  <Header />
+                                             
+                                                   <Todos  
                                                    
-                                                   
-                                                   <Todos  todos={this.state.todos}  markComplete={this.markComplete}/>
+                                                          todos={this.state.todos}  
+                                                          markComplete={this.markComplete1}
+                                                          DeleteState={this.delThis}
+                                                          
+                                                          
+                                                    />
                                                    
                                                   </div>
                                                 );
@@ -79,7 +97,7 @@ class App extends Component {
                             }
                             
                             
-function Changer(prop, state){
+function MarkChanger(prop, state){
                                 
                                 var  c = state
                                 c[prop.id-1].completed = !c[prop.id-1].completed 
@@ -87,6 +105,16 @@ function Changer(prop, state){
                                 return c
                                 
                                 
-                            }                            
+                            }     
+                            
+function DeleteItem(prop, state){
+                                
+                                var  c = state
+                               delete c[prop.id-1]
+                                
+                                return c
+                                
+                                
+                            }   
 
 export default App;
