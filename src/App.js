@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 import './App.css';
 
 
@@ -26,7 +27,7 @@ class App extends Component {
                                                 {
                                                   id:2,
                                                   title:'feed dog',
-                                                  completed: true
+                                                  completed: false
                                                 },
                                                 
                                                 {
@@ -44,6 +45,29 @@ class App extends Component {
   
   
   
+                              markComplete1 = (a) => { 
+                                  
+                                                      this.setState({
+                                                                         
+                                                                       todos: MarkChanger(a, this.state.todos)
+                                                                    })               
+                               
+                                  
+                                                    }
+                                                    
+                                                    
+                                                    
+                             delThis = (a) => { 
+                                  
+                                                      this.setState({
+                                                                         
+                                                                       todos: DeleteItem(a, this.state.todos)
+                                                                    })               
+                               
+                                  
+                                                    }
+  
+  
                               render() {
                                 
                                         
@@ -52,11 +76,16 @@ class App extends Component {
                                         return (
                                                   <div className="App">
                                                   
-                                                  
-                                                   <h1>React App</h1>
+                                                  <Header />
+                                             
+                                                   <Todos  
                                                    
-                                                   
-                                                   <Todos  todos={this.state.todos} />
+                                                          todos={this.state.todos}  
+                                                          markComplete={this.markComplete1}
+                                                          DeleteState={this.delThis}
+                                                          
+                                                          
+                                                    />
                                                    
                                                   </div>
                                                 );
@@ -66,5 +95,26 @@ class App extends Component {
                                       
                                       
                             }
+                            
+                            
+function MarkChanger(prop, state){
+                                
+                                var  c = state
+                                c[prop.id-1].completed = !c[prop.id-1].completed 
+                                
+                                return c
+                                
+                                
+                            }     
+                            
+function DeleteItem(prop, state){
+                                
+                                var  c = state
+                               delete c[prop.id-1]
+                                
+                                return c
+                                
+                                
+                            }   
 
 export default App;
