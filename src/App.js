@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
 import './App.css';
+
 
 
 
@@ -77,6 +79,7 @@ class App extends Component {
                                                   <div className="App">
                                                   
                                                   <Header />
+                                                  <AddTodo />
                                              
                                                    <Todos  
                                                    
