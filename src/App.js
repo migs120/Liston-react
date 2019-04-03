@@ -3,6 +3,7 @@ import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
 import './App.css';
+import uuid from 'uuid';
 
 
 
@@ -21,19 +22,19 @@ class App extends Component {
                                       todos: [
                                               
                                                 {
-                                                  id:1,
+                                                  id: uuid.v4(),
                                                   title:'take trashout',
                                                   completed: false
                                                 },
                                                 
                                                 {
-                                                  id:2,
+                                                  id: uuid.v4(),
                                                   title:'feed dog',
                                                   completed: false
                                                 },
                                                 
                                                 {
-                                                  id:3,
+                                                  id: uuid.v4(),
                                                   title:'clean room',
                                                   completed: false
                                                 }
@@ -68,7 +69,26 @@ class App extends Component {
                                
                                   
                                                     }
-  
+                                                    
+                                                    
+                                                   
+                                                    
+                            addTodo = (title) => {
+                                
+                                                   const newTodo = { 
+                                                                        id: uuid.v4(),
+                                                                        title:title,
+                                                                        completed:false
+                                                                        
+                                                                    }
+                                
+                                
+                                                    this.setState({todos:[...this.state.todos, newTodo]})    
+                                                    console.log(title)
+                                                    
+                                                    
+                                                  }
+                          
   
                               render() {
                                 
@@ -79,7 +99,7 @@ class App extends Component {
                                                   <div className="App">
                                                   
                                                   <Header />
-                                                  <AddTodo />
+                                                  <AddTodo addTodo={this.addTodo} />
                                              
                                                    <Todos  
                                                    
@@ -100,10 +120,23 @@ class App extends Component {
                             }
                             
                             
+function findId(objects,id){
+                    var a = 0
+                    for (var i = 0;  i < objects.length;  i++) { console.log((typeof objects[i] !== 'undefined') ? (objects[i].id===id ? a=i : '' ): '' )}
+                    return a
+                  }                            
+                            
+                            
+                            
 function MarkChanger(prop, state){
                                 
                                 var  c = state
-                                c[prop.id-1].completed = !c[prop.id-1].completed 
+                                
+                                var idn = findId(c,prop.id)
+                                
+                                c[idn].completed = !c[idn].completed 
+                                
+                                console.log(c)
                                 
                                 return c
                                 
@@ -113,9 +146,18 @@ function MarkChanger(prop, state){
 function DeleteItem(prop, state){
                                 
                                 var  c = state
-                               delete c[prop.id-1]
                                 
-                                return c
+                                var idn = findId(c,prop.id)
+                                
+                                
+                                
+                               delete c[idn]
+                               
+                               var filtered = c.filter(function (el) {
+                                                                          return el != null;
+                                                                        });
+                         
+                               return filtered
                                 
                                 
                             }   
