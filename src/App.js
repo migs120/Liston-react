@@ -120,11 +120,24 @@ class App extends Component {
                             }
                             
                             
+                           
+                            
+                            
 function findId(objects,id){
                     var a = 0
-                    for (var i = 0;  i < objects.length;  i++) { console.log((typeof objects[i] !== 'undefined') ? (objects[i].id===id ? a=i : '' ): '' )}
+                    var b = 0
+                    for (var i = 0;  i < objects.length;  i++) {
+                                                                var a1 = (typeof objects[i] !== 'undefined')
+                                                                var a2 =objects[i].id===id
+                        
+                                                                 a1 ? (a2 ? a=i : b=0 ): b = 0         
+                                                                
+                                                            
+                        
+                                                                }
+                    
                     return a
-                  }                            
+                  }                           
                             
                             
                             
