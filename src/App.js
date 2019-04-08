@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
+import About from './components/pages/about';
 import './App.css';
 import uuid from 'uuid';
 
@@ -95,22 +97,42 @@ class App extends Component {
                                         
                                        
                                         
-                                        return (
-                                                  <div className="App">
-                                                  
-                                                  <Header />
-                                                  <AddTodo addTodo={this.addTodo} />
-                                             
-                                                   <Todos  
-                                                   
-                                                          todos={this.state.todos}  
-                                                          markComplete={this.markComplete1}
-                                                          DeleteState={this.delThis}
-                                                          
-                                                          
-                                                    />
-                                                   
-                                                  </div>
+                                        return (  <Router>
+                                        
+                                                                  <div className="App">
+                                                                  
+                                                                  <Header />
+                                                                  
+                                                                  <Route exact path='/' render={props => (
+                                                                                                      <React.Fragment>
+                                                                                                      
+                                                                                                      <AddTodo addTodo={this.addTodo} />
+                                                                                                 
+                                                                                                       <Todos  
+                                                                                                       
+                                                                                                              todos={this.state.todos}  
+                                                                                                              markComplete={this.markComplete1}
+                                                                                                              DeleteState={this.delThis}
+                                                                                                              
+                                                                                                              
+                                                                                                        />
+                                                                                                        
+                                                                                                        </React.Fragment>          
+                                                                                                    )}/>
+    
+                                                                    
+                                                                    
+                                                               
+                                                                  
+                                                                <Route exact path='/about' component={About}/>
+                                                                
+                                                                
+                                                                </div>
+                                        
+                                        
+                                        
+                                                    </Router>
+                                                 
                                                 );
                                       }
                                       
@@ -125,13 +147,12 @@ class App extends Component {
                             
 function findId(objects,id){
                     var a = 0
-                    var b = 0
                     for (var i = 0;  i < objects.length;  i++) {
-                                                                var a1 = (typeof objects[i] !== 'undefined')
-                                                                var a2 =objects[i].id===id
                         
-                                                                 a1 ? (a2 ? a=i : b=0 ): b = 0         
-                                                                
+                                                                var a1 = typeof objects[i] !== 'undefined'
+                                                                var a2 = objects[i].id===id
+                                                                    
+                                                                if( a1 && a2 ){  a=i  }
                                                             
                         
                                                                 }
@@ -148,8 +169,6 @@ function MarkChanger(prop, state){
                                 var idn = findId(c,prop.id)
                                 
                                 c[idn].completed = !c[idn].completed 
-                                
-                                console.log(c)
                                 
                                 return c
                                 
