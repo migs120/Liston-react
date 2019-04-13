@@ -6,6 +6,7 @@ import Header from './components/layout/Header';
 import About from './components/pages/about';
 import './App.css';
 import uuid from 'uuid';
+import axios from 'axios';
 
 
 
@@ -22,28 +23,18 @@ class App extends Component {
                             state = {
                               
                                       todos: [
-                                              
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'take trashout',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'feed dog',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'clean room',
-                                                  completed: false
-                                                }
+                                       
                                               
                                               ]                              
                                     }
-  
+                                    
+                                    
+                            componentDidMount(){
+                                                    
+                                                    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+                                                    .then(res => this.setState({todos: res.data}))
+                                                    
+                                                }
   
   
   
