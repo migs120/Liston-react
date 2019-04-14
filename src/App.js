@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
+import About from './components/pages/about';
 import './App.css';
-import uuid from 'uuid';
+//import uuid from 'uuid';
+import axios from 'axios';
 
 
 
@@ -20,28 +23,18 @@ class App extends Component {
                             state = {
                               
                                       todos: [
-                                              
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'take trashout',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'feed dog',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'clean room',
-                                                  completed: false
-                                                }
+                                       
                                               
                                               ]                              
                                     }
-  
+                                    
+                                    
+                            componentDidMount(){
+                                                    
+                                                    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+                                                    .then(res => this.setState({todos: res.data}))
+                                                    
+                                                }
   
   
   
@@ -62,11 +55,12 @@ class App extends Component {
                                                     
                              delThis = (a) => { 
                                   
-                                                      this.setState({
-                                                                         
-                                                                       todos: DeleteItem(a, this.state.todos)
-                                                                    })               
-                               
+                                                      axios.delete(`https://jsonplaceholder.typicode.com/todos/${a.id}`)
+                                                      .then(
+                                                            res => this.setState(
+                                                                                {todos: [...this.state.todos.filter (todo => todo.id !== a.id) ]}
+                                                                                )
+                                                            );
                                   
                                                     }
                                                     
@@ -75,18 +69,9 @@ class App extends Component {
                                                     
                             addTodo = (title) => {
                                 
-                                                   const newTodo = { 
-                                                                        id: uuid.v4(),
-                                                                        title:title,
-                                                                        completed:false
-                                                                        
-                                                                    }
-                                
-                                
-                                                    this.setState({todos:[...this.state.todos, newTodo]})    
-                                                    console.log(title)
-                                                    
-                                                    
+                                                   axios.post('https://jsonplaceholder.typicode.com/todos',{title: title, completed: false})
+                                                   .then(res=> this.setState({todos: [...this.state.todos, res.data]}))
+                                   
                                                   }
                           
   
@@ -95,22 +80,42 @@ class App extends Component {
                                         
                                        
                                         
-                                        return (
-                                                  <div className="App">
-                                                  
-                                                  <Header />
-                                                  <AddTodo addTodo={this.addTodo} />
-                                             
-                                                   <Todos  
-                                                   
-                                                          todos={this.state.todos}  
-                                                          markComplete={this.markComplete1}
-                                                          DeleteState={this.delThis}
-                                                          
-                                                          
-                                                    />
-                                                   
-                                                  </div>
+                                        return (  <Router>
+                                        
+                                                                  <div className="App">
+                                                                  
+                                                                  <Header />
+                                                                  
+                                                                  <Route exact path='/' render={props => (
+                                                                                                      <React.Fragment>
+                                                                                                      
+                                                                                                      <AddTodo addTodo={this.addTodo} />
+                                                                                                 
+                                                                                                       <Todos  
+                                                                                                       
+                                                                                                              todos={this.state.todos}  
+                                                                                                              markComplete={this.markComplete1}
+                                                                                                              DeleteState={this.delThis}
+                                                                                                              
+                                                                                                              
+                                                                                                        />
+                                                                                                        
+                                                                                                        </React.Fragment>          
+                                                                                                    )}/>
+    
+                                                                    
+                                                                    
+                                                               
+                                                                  
+                                                                <Route exact path='/about' component={About}/>
+                                                                
+                                                                
+                                                                </div>
+                                        
+                                        
+                                        
+                                                    </Router>
+                                                 
                                                 );
                                       }
                                       
@@ -120,11 +125,23 @@ class App extends Component {
                             }
                             
                             
+                           
+                            
+                            
 function findId(objects,id){
                     var a = 0
-                    for (var i = 0;  i < objects.length;  i++) { console.log((typeof objects[i] !== 'undefined') ? (objects[i].id===id ? a=i : '' ): '' )}
+                    for (var i = 0;  i < objects.length;  i++) {
+                        
+                                                                var a1 = typeof objects[i] !== 'undefined'
+                                                                var a2 = objects[i].id===id
+                                                                    
+                                                                if( a1 && a2 ){  a=i  }
+                                                            
+                        
+                                                                }
+                    
                     return a
-                  }                            
+                  }                           
                             
                             
                             
@@ -136,30 +153,11 @@ function MarkChanger(prop, state){
                                 
                                 c[idn].completed = !c[idn].completed 
                                 
-                                console.log(c)
-                                
                                 return c
                                 
                                 
                             }     
                             
-function DeleteItem(prop, state){
-                                
-                                var  c = state
-                                
-                                var idn = findId(c,prop.id)
-                                
-                                
-                                
-                               delete c[idn]
-                               
-                               var filtered = c.filter(function (el) {
-                                                                          return el != null;
-                                                                        });
-                         
-                               return filtered
-                                
-                                
-                            }   
+ 
 
 export default App;
