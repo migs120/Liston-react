@@ -5,7 +5,7 @@ import AddTodo from './components/AddTodo';
 import Header from './components/layout/Header';
 import About from './components/pages/about';
 import './App.css';
-import uuid from 'uuid';
+//import uuid from 'uuid';
 import axios from 'axios';
 
 
@@ -55,11 +55,12 @@ class App extends Component {
                                                     
                              delThis = (a) => { 
                                   
-                                                      this.setState({
-                                                                         
-                                                                       todos: DeleteItem(a, this.state.todos)
-                                                                    })               
-                               
+                                                      axios.delete(`https://jsonplaceholder.typicode.com/todos/${a.id}`)
+                                                      .then(
+                                                            res => this.setState(
+                                                                                {todos: [...this.state.todos.filter (todo => todo.id !== a.id) ]}
+                                                                                )
+                                                            );
                                   
                                                     }
                                                     
@@ -68,18 +69,9 @@ class App extends Component {
                                                     
                             addTodo = (title) => {
                                 
-                                                   const newTodo = { 
-                                                                        id: uuid.v4(),
-                                                                        title:title,
-                                                                        completed:false
-                                                                        
-                                                                    }
-                                
-                                
-                                                    this.setState({todos:[...this.state.todos, newTodo]})    
-                                                    console.log(title)
-                                                    
-                                                    
+                                                   axios.post('https://jsonplaceholder.typicode.com/todos',{title: title, completed: false})
+                                                   .then(res=> this.setState({todos: [...this.state.todos, res.data]}))
+                                   
                                                   }
                           
   
@@ -166,23 +158,6 @@ function MarkChanger(prop, state){
                                 
                             }     
                             
-function DeleteItem(prop, state){
-                                
-                                var  c = state
-                                
-                                var idn = findId(c,prop.id)
-                                
-                                
-                                
-                               delete c[idn]
-                               
-                               var filtered = c.filter(function (el) {
-                                                                          return el != null;
-                                                                        });
-                         
-                               return filtered
-                                
-                                
-                            }   
+ 
 
 export default App;
