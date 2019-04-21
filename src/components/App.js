@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Todos from './components/Todos';
-import AddTodo from './components/AddTodo';
-import Header from './components/layout/Header';
-import About from './components/pages/about';
+import Todos from './Todos';
+import AddTodo from './AddTodo';
+import Header from './layout/Header';
+import About from './pages/about';
 import './App.css';
 import uuid from 'uuid';
 
