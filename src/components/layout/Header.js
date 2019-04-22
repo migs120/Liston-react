@@ -7,7 +7,7 @@ function Header(){
              <header>
     
                       <h1>TodoList</h1>
-                      <Link to='/'>Home</Link> | <Link to='/about'>About</Link>
+                      <Link to='/'>Home</Link> | <Link to='/Route_anilyzer'>Route Anilyzer</Link> | <Link to='/about'>About</Link>
     
              </header> 
     ) 

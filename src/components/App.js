@@ -4,7 +4,7 @@ import Todos from './Todos';
 import AddTodo from './AddTodo';
 import Header from './layout/Header';
 import About from './pages/about';
-import './App.css';
+import RouteAlilyze from './pages/route_anilyze';
 import uuid from 'uuid';
 
 
@@ -25,19 +25,7 @@ class App extends Component {
                                               
                                                 {
                                                   id: uuid.v4(),
-                                                  title:'take trashout',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'feed dog',
-                                                  completed: false
-                                                },
-                                                
-                                                {
-                                                  id: uuid.v4(),
-                                                  title:'clean room',
+                                                  title:'task1 example',
                                                   completed: false
                                                 }
                                               
@@ -116,6 +104,16 @@ class App extends Component {
                                                                                                               
                                                                                                               
                                                                                                         />
+                                                                                                        
+                                                                                                        </React.Fragment>          
+                                                                                                    )}/>
+                                                                                                    
+                                                                  <Route exact path='/Route_anilyzer' render={props => (
+                                                                                                      <React.Fragment>
+                                                                                                      
+                                                                                                      
+                                                                                                      <RouteAlilyze/>
+                                                                                                      
                                                                                                         
                                                                                                         </React.Fragment>          
                                                                                                     )}/>
