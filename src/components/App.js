@@ -4,7 +4,7 @@ import Todos from './Todos';
 import AddTodo from './AddTodo';
 import Header from './layout/Header';
 import About from './pages/about';
-import RouteAlilyze from './pages/route_anilyze';
+import RouteAlilyze from './RouteAnilyzer/route_anilyze';
 import uuid from 'uuid';
 
 
@@ -87,7 +87,7 @@ class App extends Component {
                                         
                                         return (  <Router>
                                         
-                                                                  <div className="App">
+                                                                  <div className="center">
                                                                   
                                                                   <Header />
                                                                   

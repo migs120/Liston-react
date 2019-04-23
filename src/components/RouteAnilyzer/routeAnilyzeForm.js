@@ -1,12 +1,11 @@
 import React from "react"
 
-class RouteAlilyze extends React.Component {
+class RouteAnilyzeForm extends React.Component {
                                             render () {
                                                         
                                                        return(
-                                                           
-                                                              <div>
-                                                                    <form>
+                                                           <React.Fragment>
+                                                                 <form>
                                                                           <label >
                                                                             start time:{ ' '}
                                                                             <input type="time" name="start time" />
@@ -55,39 +54,16 @@ class RouteAlilyze extends React.Component {
                                                                             <input type="boolen" name="Route4" />
                                                                           </label>
                                                                     </form> 
-                                                                    
-                                                                    
-                                                                    <button type="button" style={buttonStyle} onClick={RunTime} >click</button>
-                                                                    
-                                                                    
-                                                                    
-                                                                    <div style={{display:'none'}}></div>
-                                                                    
-                                                                    
-                                                                    
-                                                              </div>
+                                                                </React.Fragment>
                                                            
                                                               ) 
                                                                
                                                       }
                                           }
                                           
-                    
-                    
-                    
-var buttonStyle = {
-  padding: '7px 15px'
-
-                    
-    
-}                                          
                                           
-function RunTime(){
-   
-   console.log('runtime clicked')
-    
-    
-}
+                                          
+
 
                       
-export default RouteAlilyze
+export default RouteAnilyzeForm
