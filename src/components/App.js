@@ -108,20 +108,10 @@ class App extends Component {
                                                                                                         </React.Fragment>          
                                                                                                     )}/>
                                                                                                     
-                                                                  <Route exact path='/Route_anilyzer' render={props => (
-                                                                                                      <React.Fragment>
-                                                                                                      
-                                                                                                      
-                                                                                                      <RouteAlilyze/>
-                                                                                                      
-                                                                                                        
-                                                                                                        </React.Fragment>          
-                                                                                                    )}/>
+                                                                  <Route exact path='/Route_anilyzer' component={RouteAlilyze}/>
     
                                                                     
-                                                                    
                                                                
-                                                                  
                                                                 <Route exact path='/about' component={About}/>
                                                                 
                                                                 

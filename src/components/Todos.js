@@ -14,7 +14,12 @@ class Todos extends Component {
                                             
                                                                     (todo) => (
                                                                                 
-                                                                                <TodoItem key={todo.id} todo={todo} markComplete1={this.props.markComplete} DeleteItem={this.props.DeleteState}/>          
+                                                                                <TodoItem 
+                                                                                    key={todo.id}
+                                                                                    todo={todo} 
+                                                                                    markComplete1={this.props.markComplete}
+                                                                                    DeleteItem={this.props.DeleteState}
+                                                                                />          
                                                                                 
                                                                                )
                                             

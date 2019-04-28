@@ -2,21 +2,34 @@ import React from "react"
 import RouteAnilyzeForm from "./routeAnilyzeForm"
 import RouteAnilyzeTable from "./routeAnilyzeTable"
 
+
+var RoutesAssign = {Route1:'nothing'}
+
+
 class RouteAlilyze extends React.Component {
+    
+ 
+    
+                                                             runTimeA = () => {
+                                                                 
+                                                                                 console.log('RuntimeA clicked')
+                                                                                 
+                                                                             }
+                                                            state = RoutesAssign
+                                                             
+    
                                             render () {
                                                         
                                                        return(
                                                            
                                                               <div>
                                                                     
-                                                                    <RouteAnilyzeForm/>
+                                                                    <RouteAnilyzeForm jojo={runTimeA}/>               
                                                                     
-                                                                    <button type="button" style={buttonStyle} onClick={RunTime} >click</button>
-                                                                    
-                                                                    
+                                                                
                                                                     <br/><br/>
                                                                     
-                                                                   <RouteAnilyzeTable/>
+                                                                   <RouteAnilyzeTable routes={RoutesAssign} />
                                                                    
                                                                 
                                                               </div>
@@ -27,21 +40,16 @@ class RouteAlilyze extends React.Component {
                                           }
                                           
                     
-                    
-                    
-var buttonStyle = {
-  padding: '7px 15px'
+                                                               var Routes = {klompe:{to: 7, from:10},golob:{to:9,from:12}}
+                                                               
+                                                               //var RoutesAssign;
 
-                    
-    
-}                                          
-                                          
-function RunTime(){
-   
-   console.log('runtime clicked')
-    
-    
-}
-
+                                                                function runTimeA(a){
+                                                                    console.log(Routes.klompe,a)
+                                                                    RoutesAssign = a
+                                                                   RouteAlilyze.state = RoutesAssign
+                                                                   //console.log(RouteAlilyze[0])
+                                                                    console.log(RoutesAssign)
+                                                                }
                       
 export default RouteAlilyze
