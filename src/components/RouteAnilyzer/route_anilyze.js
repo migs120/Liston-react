@@ -15,7 +15,27 @@ class RouteAlilyze extends React.Component {
                                                                                  console.log('RuntimeA clicked')
                                                                                  
                                                                              }
-                                                            state = RoutesAssign
+                                                                             
+                                                             state = {
+                              
+                                                                      routes:[ 
+                                                                                {  name:'dairy1',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                },
+                                                                                {  name:'dairy2',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                } 
+                                                                                ]
+                                                                                                            
+                                                                    }
                                                              
     
                                             render () {
@@ -29,7 +49,7 @@ class RouteAlilyze extends React.Component {
                                                                 
                                                                     <br/><br/>
                                                                     
-                                                                   <RouteAnilyzeTable routes={RoutesAssign} />
+                                                                   <RouteAnilyzeTable routes={this.state.routes} />
                                                                    
                                                                 
                                                               </div>
@@ -40,7 +60,37 @@ class RouteAlilyze extends React.Component {
                                           }
                                           
                     
-                                                               var Routes = {klompe:{to: 7, from:10},golob:{to:9,from:12}}
+                                                               var Routes = [
+                                                                              
+                                                                                {  name:'dairy1',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                },
+                                                                                {  name:'dairy2',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                },
+                                                                                 {  name:'dairy3',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                },
+                                                                                 {  name:'dairy4',
+                                                                                    to:15,
+                                                                                    pump:35,
+                                                                                    from:15,
+                                                                                    unload:40
+                                                                                  
+                                                                                }
+                                                                              ]
                                                                
                                                                //var RoutesAssign;
 

@@ -18,7 +18,7 @@ class RouteAnilyzeTable extends React.Component {
                                                                       
                                                                             <thead>
                                                                               <tr>
-                                                                                <th>{this.props.routes === 'undifined' ? 'nothing' : this.props.routes.Route1}</th>
+                                                                                <th>{this.props.routes[0].name}</th>
                                                                                 <th>pump</th>
                                                                                 <th>depart</th>
                                                                                 <th>leavePlant</th>
