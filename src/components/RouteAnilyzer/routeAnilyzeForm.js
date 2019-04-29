@@ -2,7 +2,7 @@ import React from "react"
 
 class RouteAnilyzeForm extends React.Component {
     
-                                           value2={}
+                                          
                                               constructor(props) {
                                                                     super(props);
                                                                     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,18 +21,19 @@ class RouteAnilyzeForm extends React.Component {
                                                                              wash:this.wash.value
                                                                     
                                                                              }
-                                                                this.value2 = Value
+                                                               
                                                                 e.preventDefault();
+                                                                
                                                                 this.props.jojo(Value)
                                                               }
 
-                                              onChange = (e) => this.setState({state:this.value2} )
+                                             // onChange = (e) => this.setState({state:this.value2} )
     
                                             render () {
                                                         
                                                        return(
                                                            <React.Fragment>
-                                                                 <form    onSubmit={this.handleSubmit}   onChange={this.onChange}>
+                                                                 <form    onSubmit={this.handleSubmit}   >
                                                                           <label >
                                                                             start time:{ ' '}
                                                                             <input type="time" ref={(input) => this.startTime = input} />

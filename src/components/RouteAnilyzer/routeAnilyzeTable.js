@@ -7,9 +7,11 @@ class RouteAnilyzeTable extends React.Component {
                                             render () {
                                                 console.log(this.props)
                                                         
-                                                       return(
-                                                           <React.Fragment>
-                                                                        <div className="seebox col-12">
+                                                       return this.props.routes.map(
+                                            
+                                                                    (route) => (
+                                                                                
+                                                                                  <div key={route.key} className="seebox col-12">
                                                                     
                                                                     <h2>Route </h2>
                                                                       
@@ -18,7 +20,7 @@ class RouteAnilyzeTable extends React.Component {
                                                                       
                                                                             <thead>
                                                                               <tr>
-                                                                                <th>{this.props.routes[0].name}</th>
+                                                                                <th>{route.name}</th>
                                                                                 <th>pump</th>
                                                                                 <th>depart</th>
                                                                                 <th>leavePlant</th>
@@ -51,10 +53,14 @@ class RouteAnilyzeTable extends React.Component {
                                                                       </table>
                                                                     
                                                                     
-                                                                    </div>
-                                                                </React.Fragment>
-                                                           
-                                                              ) 
+                                                                    </div>         
+                                                                                
+                                                                               )
+                                            
+                                                                    );
+                                                       
+                                                       
+                                               
                                                                
                                                       }
                                           }
