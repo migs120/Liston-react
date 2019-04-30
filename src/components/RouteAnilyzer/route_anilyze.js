@@ -115,10 +115,11 @@ function getTime(stime,adOrTake){
                           var dateInsert2 = date2.slice(0,dateGrab2)
                           var dateCal2 = new Date(dateInsert2).getMinutes()+adOrTake
                           var dateCal3 = new Date(dateInsert2).setMinutes(dateCal2)
-                          var dateFin1 = new Date(dateCal3)
-                          //var dateFinIndex = (""+dateFin1).lastIndexOf(":")
-                          //var dateFin4 = ""+dateFin1.slice(0,dateFinIndex)
-                          console.log(dateFin1)
+                          var dateFin1 = ""+new Date(dateCal3)
+                          var dateFinIndex = dateFin1.lastIndexOf(":")
+                          var finShort = dateFin1.slice(0,dateFinIndex)
+                          
+                          console.log(finShort)
     
     
                        }                                                               
@@ -127,7 +128,7 @@ function runTimeA(prop){
                         
                         console.log(prop)
                         var obNew = [];
-                        var hourAim = prop.hourAim;
+                        var hourAim = prop.hourAim.split(":");
                         var startTime = prop.startTime;
                         var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4];
                         for (var i = 0;  i < list.length;  i++) {
@@ -152,7 +153,9 @@ function runTimeA(prop){
                                                                      console.log(obNew[i2])
                                                             
                                                                   }
-                        getTime(startTime)                                          
+                                                                  
+                       var hourAim2 = (60*hourAim[0])+Number(hourAim[1])
+                        getTime(startTime,hourAim2)                                          
                                                             
                         return obNew
                       
