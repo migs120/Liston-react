@@ -13,14 +13,14 @@ class RouteAnilyzeTable extends React.Component {
                                                                                 
                                                                                   <div key={route.key} className="seebox col-12">
                                                                     
-                                                                    <h2>Route </h2>
+                                                                    <h2>{route.name}</h2>
                                                                       
                                                                     
                                                                       <table className="table table-bordered">                              
                                                                       
                                                                             <thead>
                                                                               <tr>
-                                                                                <th>{route.name}</th>
+                                                                                <th>start</th>
                                                                                 <th>pump</th>
                                                                                 <th>depart</th>
                                                                                 <th>leavePlant</th>
@@ -30,23 +30,12 @@ class RouteAnilyzeTable extends React.Component {
                                                                             
                                                                             <tbody>
                                                                               <tr>
-                                                                                <td>John</td>
-                                                                                <td>Doe</td>
-                                                                                <td>John</td>
-                                                                                <td>john</td>
+                                                                                <td>{route.to}</td>
+                                                                                <td>{route.pump}</td>
+                                                                                <td>{route.from}</td>
+                                                                                <td>{route.unload}</td>
                                                                               </tr>
-                                                                              <tr>
-                                                                                <td>Mary</td>
-                                                                                <td>Moe</td>
-                                                                                <td>John</td>
-                                                                                <td>mary</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <td>July</td>
-                                                                                <td>Dooley</td>
-                                                                                <td>John</td>
-                                                                                <td>july@</td>
-                                                                              </tr>
+                                                                           
                                                                             </tbody>
                                                                             
                                                                             

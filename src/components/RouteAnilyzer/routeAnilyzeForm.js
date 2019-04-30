@@ -42,7 +42,7 @@ class RouteAnilyzeForm extends React.Component {
                                                                     
                                                                           <label>
                                                                             hours aim:{ ' '}
-                                                                            <input type="number" ref={(input) => this.hourAim = input} />
+                                                                            <input type="time" ref={(input) => this.hourAim = input} />
                                                                           </label><br/>
                                                                    
                                                                           <label>

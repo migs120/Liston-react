@@ -105,13 +105,31 @@ var Routes = {
                         },
             }
                                                                
-                                                               //var RoutesAssign;
+function getTime(stime,adOrTake){
+    
+                          var  date1 = ""+new Date()
+                          var  dateGrab = date1.indexOf(':')
+                          var  dateInsert = date1.slice(0,dateGrab-2)
+                          var  date2 = ''+new Date(dateInsert+' '+stime)
+                          var  dateGrab2 = date2.lastIndexOf(":")
+                          var dateInsert2 = date2.slice(0,dateGrab2)
+                          var dateCal2 = new Date(dateInsert2).getMinutes()+adOrTake
+                          var dateCal3 = new Date(dateInsert2).setMinutes(dateCal2)
+                          var dateFin1 = new Date(dateCal3)
+                          //var dateFinIndex = (""+dateFin1).lastIndexOf(":")
+                          //var dateFin4 = ""+dateFin1.slice(0,dateFinIndex)
+                          console.log(dateFin1)
+    
+    
+                       }                                                               
 
 function runTimeA(prop){
                         
                         console.log(prop)
-                        var obNew = []
-                        var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4]
+                        var obNew = [];
+                        var hourAim = prop.hourAim;
+                        var startTime = prop.startTime;
+                        var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4];
                         for (var i = 0;  i < list.length;  i++) {
                         
                                                                obNew.push( 
@@ -128,7 +146,14 @@ function runTimeA(prop){
                                                                         )
                                                         
                                                                 } 
-                      
+                                                                
+                        for (var i2 = list.length-1;  i2 > 0;  i2--) {
+                                                            
+                                                                     console.log(obNew[i2])
+                                                            
+                                                                  }
+                        getTime(startTime)                                          
+                                                            
                         return obNew
                       
                     }
