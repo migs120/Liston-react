@@ -33,7 +33,7 @@ class RouteAnilyzeTable extends React.Component {
                                                                                 <td>{route.to}</td>
                                                                                 <td>{route.pump}</td>
                                                                                 <td>{route.from}</td>
-                                                                                <td>{route.unload}</td>
+                                                                                <td>{route.leavePlant}</td>
                                                                               </tr>
                                                                            
                                                                             </tbody>

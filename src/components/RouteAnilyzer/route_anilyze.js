@@ -120,6 +120,7 @@ function getTime(stime,adOrTake){
                           var finShort = dateFin1.slice(0,dateFinIndex)
                           
                           console.log(finShort)
+                          return finShort.slice(finShort.indexOf(":")-2,finShort.indexOf(":")+3)
     
     
                        }                                                               
@@ -129,6 +130,7 @@ function runTimeA(prop){
                         console.log(prop)
                         var obNew = [];
                         var hourAim = prop.hourAim.split(":");
+                        var hourAim2 = (60*hourAim[0])+Number(hourAim[1])
                         var startTime = prop.startTime;
                         var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4];
                         for (var i = 0;  i < list.length;  i++) {
@@ -147,14 +149,17 @@ function runTimeA(prop){
                                                                         )
                                                         
                                                                 } 
+                        var waitAtPlant = 45
                                                                 
-                        for (var i2 = list.length-1;  i2 > 0;  i2--) {
-                                                            
+                        for (var i2 = list.length-1;  i2 > -1;  i2--) {
+                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : 2000
                                                                      console.log(obNew[i2])
-                                                            
-                                                                  }
+                                                                     obNew[i2].leavePlant = checkfoLast
+                                                                     obNew[i2].waitAtPlant = waitAtPlant
+                                                                     
+                                                                     }
                                                                   
-                       var hourAim2 = (60*hourAim[0])+Number(hourAim[1])
+                      
                         getTime(startTime,hourAim2)                                          
                                                             
                         return obNew
