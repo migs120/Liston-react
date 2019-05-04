@@ -16,9 +16,21 @@ class TodoItem extends Component {
                                                             
                                                                 <p style={  getStyle(this.props) } >
                                                                 
-                                                                    <input type="checkbox"  onChange={this.props.markComplete1.bind(this, this.props.todo)}/>
-                                                                    {this.props.todo.title}{' '}
-                                                                    <button  onClick={this.props.DeleteItem.bind(this, this.props.todo)}  style={buttonStyle}>delete</button>
+                                                                    <input type="checkbox"
+                                                                        onChange={this.props.markComplete1.bind(this, this.props.todo)}
+                                                                    />
+                                                                            {this.props.todo.title}{' '}
+                                                                            
+                                                                            
+                                                                    <button 
+                                                                    
+                                                                        onClick={this.props.DeleteItem.bind(this, this.props.todo)}
+                                                                        style={buttonStyle}>
+                                                                        
+                                                                        delete
+                                                                        
+                                                                        
+                                                                    </button>
                                                                 </p>
                                                                 
                                                             </div>

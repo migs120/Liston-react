@@ -29,7 +29,7 @@ class RouteAnilyzeForm extends React.Component {
 
                                              // onChange = (e) => this.setState({state:this.value2} )
     
-                                            render () {
+                                            render () {                                                                                                                            
                                                         
                                                        return(
                                                            <React.Fragment>
@@ -52,7 +52,7 @@ class RouteAnilyzeForm extends React.Component {
                                                                   
                                                                           <label>
                                                                             Route 2 :{ ' '}
-                                                                            <input type="string" ref={(input) => this.Route2 = input} />
+                                                                            <input type="string" ref={(input) => this.Route2 = input } />
                                                                           </label><br/>
                                                                  
                                                                           <label>

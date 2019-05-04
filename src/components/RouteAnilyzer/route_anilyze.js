@@ -105,7 +105,7 @@ var Routes = {
                         },
             }
                                                                
-function getTime(stime,adOrTake){
+function getTime(stime,adOrTakeMinutes){
     
                           var  date1 = ""+new Date()
                           var  dateGrab = date1.indexOf(':')
@@ -113,7 +113,7 @@ function getTime(stime,adOrTake){
                           var  date2 = ''+new Date(dateInsert+' '+stime)
                           var  dateGrab2 = date2.lastIndexOf(":")
                           var dateInsert2 = date2.slice(0,dateGrab2)
-                          var dateCal2 = new Date(dateInsert2).getMinutes()+adOrTake
+                          var dateCal2 = new Date(dateInsert2).getMinutes()+adOrTakeMinutes
                           var dateCal3 = new Date(dateInsert2).setMinutes(dateCal2)
                           var dateFin1 = ""+new Date(dateCal3)
                           var dateFinIndex = dateFin1.lastIndexOf(":")
@@ -150,12 +150,13 @@ function runTimeA(prop){
                                                         
                                                                 } 
                         var waitAtPlant = 45
-                                                                
+                        var switch1 = 0                                      
                         for (var i2 = list.length-1;  i2 > -1;  i2--) {
-                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : 2000
+                                                                    switch1 ++
+                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : getTime(startTime,(60*2)+30)                                 
                                                                      console.log(obNew[i2])
                                                                      obNew[i2].leavePlant = checkfoLast
-                                                                     obNew[i2].waitAtPlant = waitAtPlant
+                                                                     obNew[i2].arrivePlant = 1
                                                                      
                                                                      }
                                                                   

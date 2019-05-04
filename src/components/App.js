@@ -94,16 +94,22 @@ class App extends Component {
                                                                   <Route exact path='/' render={props => (
                                                                                                       <React.Fragment>
                                                                                                       
+                                                                                                   
+                                                                                                      
                                                                                                       <AddTodo addTodo={this.addTodo} />
+                                                                                                      
+                                                                                                    
+                                                                                                      
                                                                                                  
                                                                                                        <Todos  
                                                                                                        
                                                                                                               todos={this.state.todos}  
-                                                                                                              markComplete={this.markComplete1}
+                                                                                                              markComplete={this.markComplete1}                                             
                                                                                                               DeleteState={this.delThis}
                                                                                                               
                                                                                                               
                                                                                                         />
+                                                                                                      
                                                                                                         
                                                                                                         </React.Fragment>          
                                                                                                     )}/>
