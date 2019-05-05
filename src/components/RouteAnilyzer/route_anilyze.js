@@ -58,7 +58,6 @@ render () {
                     <br/><br/>
                     
                    <RouteAnilyzeTable routes={this.state.routes} />
-                   
                 
               </div>
            
@@ -77,28 +76,28 @@ var Routes = {
               
               'dairy1': {  name:'dairy1',
                             to:15,
-                            pump:35,
+                            pump:42,
                             from:15,
                             unload:40
                           
                         },
               'dairy2': {  name:'dairy2',
                             to:15,
-                            pump:35,
+                            pump:42,
                             from:15,
                             unload:40
                           
                         },
               'dairy3': {  name:'dairy3',
                             to:15,
-                            pump:35,
+                            pump:42,
                             from:15,
                             unload:40
                           
                         },
               'dairy4': {  name:'dairy4',
                             to:15,
-                            pump:35,
+                            pump:42,
                             from:15,
                             unload:40
                           
@@ -119,7 +118,7 @@ function getTime(stime,adOrTakeMinutes){
                           var dateFinIndex = dateFin1.lastIndexOf(":")
                           var finShort = dateFin1.slice(0,dateFinIndex)
                           
-                          console.log(finShort)
+                          //console.log(finShort)
                           return finShort.slice(finShort.indexOf(":")-2,finShort.indexOf(":")+3)
     
     
@@ -149,15 +148,17 @@ function runTimeA(prop){
                                                                         )
                                                         
                                                                 } 
-                        var waitAtPlant = 45
+                       // var waitAtPlant = 45
                         var switch1 = 0                                      
                         for (var i2 = list.length-1;  i2 > -1;  i2--) {
                                                                     switch1 ++
-                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : getTime(startTime,(60*2)+30)                                 
+                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : getTime(obNew[i2+1].arriveDairy, -obNew[i2+1].to   )                                 
                                                                      console.log(obNew[i2])
                                                                      obNew[i2].leavePlant = checkfoLast
-                                                                     obNew[i2].arrivePlant = 1
-                                                                     
+                                                                     obNew[i2].arrivePlant = getTime(obNew[i2].leavePlant, -obNew[i2].unload )
+                                                                     obNew[i2].leaveDairy = getTime(obNew[i2].arrivePlant, -obNew[i2].from )
+                                                                     obNew[i2].startPumping = getTime(obNew[i2].leaveDairy, -obNew[i2].pump )
+                                                                     obNew[i2].arriveDairy = getTime(obNew[i2].startPumping, -20 )
                                                                      }
                                                                   
                       

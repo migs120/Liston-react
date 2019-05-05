@@ -36,33 +36,33 @@ class RouteAnilyzeForm extends React.Component {
                                                                  <form    onSubmit={this.handleSubmit}   >
                                                                           <label >
                                                                             start time:{ ' '}
-                                                                            <input type="time" ref={(input) => this.startTime = input} />
+                                                                            <input type="time"  defaultValue="17:30" ref={(input) => this.startTime = input} />
                                                                           </label><br/>
                                                                           
                                                                     
                                                                           <label>
                                                                             hours aim:{ ' '}
-                                                                            <input type="time" ref={(input) => this.hourAim = input} />
+                                                                            <input type="time" defaultValue="dairy1" ref={(input) => this.hourAim = input} />
                                                                           </label><br/>
                                                                    
                                                                           <label>
                                                                             Route 1 :{ ' '}
-                                                                            <input type="string"  ref={(input) => this.Route1 = input}  />
+                                                                            <input type="string" defaultValue="dairy1" ref={(input) => this.Route1 = input}  />
                                                                           </label><br/>
                                                                   
                                                                           <label>
                                                                             Route 2 :{ ' '}
-                                                                            <input type="string" ref={(input) => this.Route2 = input } />
+                                                                            <input type="string" defaultValue="dairy1" ref={(input) => this.Route2 = input } />
                                                                           </label><br/>
                                                                  
                                                                           <label>
                                                                             Route 3 :{ ' '}
-                                                                            <input type="string" ref={(input) => this.Route3 = input} />
+                                                                            <input type="string" defaultValue="dairy1" ref={(input) => this.Route3 = input} />
                                                                           </label><br/>
                                                                     
                                                                           <label>
                                                                             Route 4 :{ ' '}
-                                                                            <input type="string" ref={(input) => this.Route4 = input} />
+                                                                            <input type="string" defaultValue="dairy1" ref={(input) => this.Route4 = input} />
                                                                           </label><br/>
                                                                     
                                                                         <label>

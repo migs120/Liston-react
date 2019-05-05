@@ -20,9 +20,10 @@ class RouteAnilyzeTable extends React.Component {
                                                                       
                                                                             <thead>
                                                                               <tr>
-                                                                                <th>start</th>
-                                                                                <th>pump</th>
-                                                                                <th>depart</th>
+                                                                                <th>arriveDairy</th>
+                                                                                <th>startPumping</th>
+                                                                                <th>leaveDairy</th>
+                                                                                <th>arrivePlant</th>
                                                                                 <th>leavePlant</th>
                                                                               </tr>
                                                                             </thead>
@@ -30,9 +31,10 @@ class RouteAnilyzeTable extends React.Component {
                                                                             
                                                                             <tbody>
                                                                               <tr>
-                                                                                <td>{route.to}</td>
-                                                                                <td>{route.pump}</td>
-                                                                                <td>{route.from}</td>
+                                                                                <td>{route.arriveDairy}</td>
+                                                                                <td>{route.startPumping}</td>
+                                                                                <td>{route.leaveDairy}</td>
+                                                                                <td>{route.arrivePlant}</td>
                                                                                 <td>{route.leavePlant}</td>
                                                                               </tr>
                                                                            
