@@ -81,10 +81,10 @@ var Routes = {
                             unload:40
                           
                         },
-              'dairy2': {  name:'dairy2',
-                            to:15,
+              'mabtonDairy': {  name:'mabtonDairy',
+                            to:23,
                             pump:42,
-                            from:15,
+                            from:30,
                             unload:40
                           
                         },
@@ -132,27 +132,32 @@ function runTimeA(prop){
                         var hourAim2 = (60*hourAim[0])+Number(hourAim[1])
                         var startTime = prop.startTime;
                         var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4];
-                        for (var i = 0;  i < list.length;  i++) {
+                        for (var i = 0;  i < list.length;  i++) { 
+                            
+                                                                    console.log(typeof Routes[list[i]] !== "undefined" )
+                            
+                                                                    if (typeof Routes[list[i]] !== "undefined"){
                         
-                                                               obNew.push( 
-                                                                   
-                                                                        {
-                                                                            key:[i],
-                                                                            name:Routes[list[i]].name,
-                                                                            to:Routes[list[i]].to,
-                                                                            pump:Routes[list[i]].pump,
-                                                                            from:Routes[list[i]].from,
-                                                                            unload:Routes[list[i]].unload
-                                                                        }
-                                                                        
-                                                                        )
+                                                                   obNew.push( 
+                                                                       
+                                                                            {
+                                                                                key:[i],
+                                                                                name:Routes[list[i]].name,
+                                                                                to:Routes[list[i]].to,
+                                                                                pump:Routes[list[i]].pump,
+                                                                                from:Routes[list[i]].from,
+                                                                                unload:Routes[list[i]].unload
+                                                                            }
+                                                                            
+                                                                            )}
+                                                                    
                                                         
                                                                 } 
                        // var waitAtPlant = 45
                         var switch1 = 0                                      
-                        for (var i2 = list.length-1;  i2 > -1;  i2--) {
+                        for (var i2 = obNew.length-1;  i2 > -1;  i2--) {
                                                                     switch1 ++
-                                                                    var checkfoLast = i2 === list.length-1 ? getTime(startTime,hourAim2)  : getTime(obNew[i2+1].arriveDairy, -obNew[i2+1].to   )                                 
+                                                                    var checkfoLast = i2 === obNew.length-1 ? getTime(startTime,hourAim2)  : getTime(obNew[i2+1].arriveDairy, -obNew[i2+1].to   )                                 
                                                                      console.log(obNew[i2])
                                                                      obNew[i2].leavePlant = checkfoLast
                                                                      obNew[i2].arrivePlant = getTime(obNew[i2].leavePlant, -obNew[i2].unload )
