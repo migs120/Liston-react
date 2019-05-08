@@ -21,24 +21,7 @@ runTimeA = (val) => {
              
 state = {
             routes:[
-                        {  
-                            key:1,
-                            name:'dairyEapmple1',
-                            to:15,
-                            pump:35,
-                            from:15,
-                            unload:40
-                          
-                        },
-                        {  
-                            key:2,
-                            name:'dairyEapmple2',
-                            to:15,
-                            pump:35,
-                            from:15,
-                            unload:40
-                          
-                        }
+                       
                     ]
                 
                 
@@ -133,23 +116,25 @@ function runTimeA(prop){
                         var startTime = prop.startTime;
                         var list = [prop.Route1,prop.Route2,prop.Route3,prop.Route4];
                         for (var i = 0;  i < list.length;  i++) { 
+                                                                  var skipEmpty = typeof Routes[list[i]] !== "undefined"
                             
-                                                                    console.log(typeof Routes[list[i]] !== "undefined" )
                             
-                                                                    if (typeof Routes[list[i]] !== "undefined"){
+                                                                    if (skipEmpty){
                         
-                                                                   obNew.push( 
-                                                                       
-                                                                            {
-                                                                                key:[i],
-                                                                                name:Routes[list[i]].name,
-                                                                                to:Routes[list[i]].to,
-                                                                                pump:Routes[list[i]].pump,
-                                                                                from:Routes[list[i]].from,
-                                                                                unload:Routes[list[i]].unload
-                                                                            }
-                                                                            
-                                                                            )}
+                                                                                   obNew.push( 
+                                                                                       
+                                                                                            {
+                                                                                                key:[i],
+                                                                                                name:Routes[list[i]].name,
+                                                                                                to:Routes[list[i]].to,
+                                                                                                pump:Routes[list[i]].pump,
+                                                                                                from:Routes[list[i]].from,
+                                                                                                unload:Routes[list[i]].unload
+                                                                                            }
+                                                                                            
+                                                                                            )
+                                                                        
+                                                                                }
                                                                     
                                                         
                                                                 } 
